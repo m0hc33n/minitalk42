@@ -21,16 +21,21 @@
 # include <unistd.h>
 
 # define MAX_BITS 8
-# define BUFFER_SIZE 1024
 
-# define SERVER_WELCOME "\n** Welcome to Minitalk Server <3 **\n\n"
-# define SERVERWELCOMELEN 38
+# define SERVER_BANNER "\t========= Minitalk Server =========\n"
+# define SERVERBANNERLEN 37
 
-# define STARTLISTENING "[++] SERVER LISTENING FRO INCOMING SIGNALS\n"
-# define STARTLISTENINGLEN 43
+# define SERVER_WELCOME "\n\t** Welcome to Minitalk Server <3 **\n\n"
+# define SERVERWELCOMELEN 39
 
-# define SERVERPID "[++] SERVER PID : "
-# define SERVERPIDLEN 18
+# define STARTLISTENING "\tSERVER LISTENING FOR INCOMING MESSAGES\n\n"
+# define STARTLISTENINGLEN 41
+
+# define SERVERPID "\tSERVER PID : "
+# define SERVERPIDLEN 14
+
+# define SIGACTIONERR "[--] SIGACTION : UNABLE TO REGISTER SIGNAL\n"
+# define SIGACTIONERRLEN 43
 
 typedef struct s_msg
 {

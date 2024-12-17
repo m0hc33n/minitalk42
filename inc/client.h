@@ -19,17 +19,23 @@
 # include <sys/types.h>
 # include <unistd.h>
 
+# define CLIENT_BANNER  "\t========= Minitalk Client =========\n"
+# define CLIENTBANNERLEN 37
+
 # define USAGE "USAGAE:\n\t<program> <server pid> <message>\n"
 # define USAGELEN 42
 
 # define INVALID_PID "\t[--] INVALID SERVER PID\n"
 # define INVALIDPIDLEN 25
 
-# define UNABLESENDMSG "\t[--] UNABLE TO SEND MESSAGE\n"
-# define UNABLESENDMSGLEN 29
+# define INVALIDARGS "\t[--] INVALID ARGS\n"
+# define INVALIDARGSLEN 19
 
-# define CLIENT_WELCOME "\n** Welcome to Minitalk Client <3 **\n\n"
-# define CLIENTWELCOMELEN 38
+# define UNABLESENDMSG "\t[--] UNABLE TO SEND MESSAGE (CHECK PID)\n"
+# define UNABLESENDMSGLEN 41
+
+# define CLIENT_WELCOME "\n\t** Welcome to Minitalk Client <3 **"
+# define CLIENTWELCOMELEN 36
 
 # define VERIFYARGS "[++] VERIFY ARGS ...\n"
 # define VERIFYARGSLEN 21

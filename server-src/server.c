@@ -32,16 +32,23 @@ static void	init_server(void)
 	struct sigaction	sa;
 
 	print_banner(SERVER_BANNER, SERVERBANNERLEN);
+	write(STDOUT_FILENO, SERVER_WELCOME, SERVERWELCOMELEN);
 	sa.sa_handler = sighandler;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
 	sigaddset(&sa.sa_mask, SIGUSR1);
 	sigaddset(&sa.sa_mask, SIGUSR2);
 	if (-1 == sigaction(SIGUSR1, &sa, NULL))
+	{
+		write(STDOUT_FILENO, SIGACTIONERR, SIGACTIONERRLEN);
 		exit(EXIT_FAILURE);
+	}
 	if (-1 == sigaction(SIGUSR2, &sa, NULL))
+	{
+		write(STDOUT_FILENO, SIGACTIONERR, SIGACTIONERRLEN);
 		exit(EXIT_FAILURE);
-	write(STDOUT_FILENO, SERVER_WELCOME, SERVERWELCOMELEN);
+	}
+	write(STDOUT_FILENO, STARTLISTENING, STARTLISTENINGLEN);
 }
 
 int	main(void)
@@ -52,7 +59,7 @@ int	main(void)
 	server_pid = getpid();
 	write(STDOUT_FILENO, SERVERPID, SERVERPIDLEN);
 	ft_putnbr_fd((int)server_pid, 1);
-	write(1, "\n", 1);
+	write(STDOUT_FILENO, LINE, LINELEN);
 	while (1)
 		;
 }
