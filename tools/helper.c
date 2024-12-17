@@ -29,11 +29,6 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-void	print_banner(const char *banner, size_t banner_size)
-{
-	write(STDOUT_FILENO, banner, banner_size);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	long int	nbr;

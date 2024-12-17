@@ -26,7 +26,6 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putnbr_fd(int n, int fd);
 
 //
-void		print_banner(const char *banner, size_t banner_size);
 bool		get_pid_from_str(const char *str, int *server_pid);
 
 #endif

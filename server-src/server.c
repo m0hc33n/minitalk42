@@ -12,8 +12,15 @@
 
 #include "../inc/server.h"
 
-static void	sighandler(int signum)
+static void	sighandler(int signum, siginfo_t *info, void *context)
 {
+	(void)context;
+	if (g_msg.prev_client_pid != (int)info->si_pid)
+	{
+		g_msg.prev_client_pid = (int)info->si_pid;
+		g_msg.current_bit = 0;
+		g_msg.current_char = 0;
+	}
 	if (signum == SIGUSR1)
 		g_msg.current_char = g_msg.current_char << 1;
 	else
@@ -31,13 +38,11 @@ static void	init_server(void)
 {
 	struct sigaction	sa;
 
-	print_banner(SERVER_BANNER, SERVERBANNERLEN);
+	write(STDOUT_FILENO, SERVER_BANNER, SERVERBANNERLEN);
 	write(STDOUT_FILENO, SERVER_WELCOME, SERVERWELCOMELEN);
-	sa.sa_handler = sighandler;
-	sa.sa_flags = 0;
+	sa.sa_sigaction = sighandler;
+	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
-	sigaddset(&sa.sa_mask, SIGUSR1);
-	sigaddset(&sa.sa_mask, SIGUSR2);
 	if (-1 == sigaction(SIGUSR1, &sa, NULL))
 	{
 		write(STDOUT_FILENO, SIGACTIONERR, SIGACTIONERRLEN);
@@ -61,5 +66,7 @@ int	main(void)
 	ft_putnbr_fd((int)server_pid, 1);
 	write(STDOUT_FILENO, LINE, LINELEN);
 	while (1)
-		;
+	{
+		pause();
+	}
 }

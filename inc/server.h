@@ -41,6 +41,7 @@ typedef struct s_msg
 {
 	char	current_char;
 	int		current_bit;
+	pid_t	prev_client_pid;
 }			t_msg;
 
 t_msg		g_msg = {0};

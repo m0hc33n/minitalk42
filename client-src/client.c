@@ -12,9 +12,9 @@
 
 #include "../inc/client.h"
 
-static void	init_client(void)
+static void	print_banner(void)
 {
-	print_banner(CLIENT_BANNER, CLIENTBANNERLEN);
+	write(STDOUT_FILENO, CLIENT_BANNER, CLIENTBANNERLEN);
 	write(STDOUT_FILENO, CLIENT_WELCOME, CLIENTWELCOMELEN);
 	write(STDERR_FILENO, LINE, LINELEN);
 }
@@ -49,7 +49,7 @@ static bool	send_bits(pid_t server_pid, char c)
 				return (false);
 		}
 		i--;
-		usleep(100);
+		usleep(600);
 	}
 	return (true);
 }
@@ -63,7 +63,6 @@ static bool	send_msg(pid_t server_pid, char *msg)
 		c = *msg;
 		if (!send_bits(server_pid, c))
 			return (false);
-		usleep(100);
 		msg++;
 	}
 	return (true);
@@ -73,7 +72,7 @@ int	main(int ac, char **av)
 {
 	pid_t	server_pid;
 
-	init_client();
+	print_banner();
 	if (!arg_handler(ac, av, &server_pid))
 	{
 		write(STDOUT_FILENO, USAGE, USAGELEN);
