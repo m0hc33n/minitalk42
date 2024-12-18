@@ -7,6 +7,8 @@
 # define LINE "\n\n\t===================================\n\n"
 # define LINELEN 40
 
+# define NULL_BYTE "\0"
+
 //
 int			ft_isspace(int c);
 int			ft_isdigit(int c);

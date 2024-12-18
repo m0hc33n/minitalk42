@@ -16,7 +16,10 @@ static void	sighandler(int signum, siginfo_t *info, void *context)
 	g_msg.current_bit++;
 	if (g_msg.current_bit == MAX_BITS)
 	{
-		write(1, &g_msg.current_char, 1);
+		if (g_msg.current_char == *(char *)NULL_BYTE)
+			kill(info->si_pid, SIGUSR1);
+		else
+			write(1, &g_msg.current_char, 1);
 		g_msg.current_bit = 0;
 		g_msg.current_char = 0;
 	}

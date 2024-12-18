@@ -6,6 +6,7 @@
 # include <stdbool.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 # define CLIENT_BANNER  "\t========= Minitalk Client =========\n"
 # define CLIENTBANNERLEN 37
@@ -34,7 +35,15 @@
 # define SENDINGMSG "[++] START SENDING MSG\n"
 # define SENDINGMSGLEN 23
 
+# define SIGACTIONERR "[--] SIGACTION : UNABLE TO REGISTER SIGNAL\n"
+# define SIGACTIONERRLEN 43
+
+# define SERVER_ACK "[++] SERVER ACK (MSG RECEIVED)\n"
+# define SERVERACKLEN 31
+
 # define DONE "[++] DONE !\n"
 # define DONELEN 12
+
+bool		arg_handler(int ac, char **av, pid_t *server_pid);
 
 #endif
