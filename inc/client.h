@@ -6,7 +6,6 @@
 # include <stdbool.h>
 # include <sys/types.h>
 # include <unistd.h>
-# include <stdlib.h>
 
 # define CLIENT_BANNER  "\t========= Minitalk Client =========\n"
 # define CLIENTBANNERLEN 37
