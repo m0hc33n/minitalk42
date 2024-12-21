@@ -23,12 +23,16 @@ static void	sighandler(int signum, siginfo_t *info, void *context)
 		g_msg.current_bit = 0;
 		g_msg.current_char = 0;
 	}
+	kill(info->si_pid, SIGUSR2);
 }
 
 static void	init_server(void)
 {
 	struct sigaction	sa;
 
+	g_msg.current_bit = 0;
+	g_msg.current_char = 0;
+	g_msg.prev_client_pid = 0;
 	write(STDOUT_FILENO, SERVER_BANNER, SERVERBANNERLEN);
 	write(STDOUT_FILENO, SERVER_WELCOME, SERVERWELCOMELEN);
 	sa.sa_sigaction = sighandler;

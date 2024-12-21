@@ -6,15 +6,15 @@ SERVER_HDR = inc/server.h
 TOOLS_HDR  = inc/tools.h
 
 SERVER_SRC = server-src/server.c
-CLIENT_SRC = client-src/client.c client-src/arg_handler.c
-TOOLS_SRC  = tools/pid_handler.c tools/helper.c
+CLIENT_SRC = client-src/client.c
+TOOLS_SRC  = tools/pid_handler.c tools/helper.c tools/arg_handler.c
 
 SERVER_OBJ = $(SERVER_SRC:.c=.o)
 CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 TOOLS_OBJ  = $(TOOLS_SRC:.c=.o)
 
 SERVER_BONUS_SRC = server-src/server_bonus.c
-CLIENT_BONUS_SRC = client-src/client_bonus.c client-src/arg_handler.c
+CLIENT_BONUS_SRC = client-src/client_bonus.c
 
 SERVER_BONUS_OBJ = $(SERVER_BONUS_SRC:.c=.o)
 CLIENT_BONUS_OBJ = $(CLIENT_BONUS_SRC:.c=.o)

@@ -1,6 +1,6 @@
-#include "../inc/client.h"
+#include "../inc/tools.h"
 
-bool	arg_handler(int ac, char **av, pid_t *server_pid)
+bool	cl_arg_handler(int ac, char **av, pid_t *server_pid)
 {
 	if (ac != 3)
 		return (false);

@@ -32,6 +32,6 @@ typedef struct s_msg
 	pid_t	prev_client_pid;
 }			t_msg;
 
-t_msg		g_msg = {0};
+t_msg		g_msg;
 
 #endif
