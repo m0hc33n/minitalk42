@@ -1,7 +1,5 @@
 #include "../inc/client.h"
 
-t_info g_info = {0};
-
 static void	sighandler(int signum, siginfo_t *info, void *context)
 {
 	(void)context;
