@@ -20,6 +20,7 @@ static void	sighandler(int signum, siginfo_t *info, void *context)
 		g_msg.current_bit = 0;
 		g_msg.current_char = 0;
 	}
+	usleep(10);
 	kill(info->si_pid, SIGUSR1);
 }
 
