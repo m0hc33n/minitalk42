@@ -1,6 +1,6 @@
 #include "../inc/server.h"
 
-int	get_utf8_bytes_required(int first_byte)
+int	get_utf8_bytes_required(char first_byte)
 {
 	if ((first_byte & 0x80) == 0)
 		return (1);
