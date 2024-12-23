@@ -39,3 +39,12 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd((nbr % 10) + 48, fd);
 	}
 }
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	while (len--)
+	{
+		*(unsigned char *)(b + len) = (unsigned char)c;
+	}
+	return (b);
+}

@@ -4,7 +4,10 @@ static void	sighandler(int signum, siginfo_t *info, void *context)
 {
 	(void)context;
 	if (signum == SIGUSR1)
+	{
 		write(STDOUT_FILENO, SERVER_ACK, SERVERACKLEN);
+		exit(EXIT_SUCCESS);
+	}
 	else if (signum == SIGUSR2 && g_info.server_pid == info->si_pid)
 		g_info.ack = 1;
 }

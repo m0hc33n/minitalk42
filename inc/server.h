@@ -29,9 +29,15 @@ typedef struct s_msg
 {
 	char	current_char;
 	int		current_bit;
+	char	unicode_seq[4];
+	int		current_byte;
+	int		req_bytes;
 	pid_t	prev_client_pid;
 }			t_msg;
 
 t_msg		g_msg;
+
+void	clear_s_msg();
+int		get_utf8_bytes_required(char first_byte);
 
 #endif
