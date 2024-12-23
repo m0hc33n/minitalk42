@@ -53,9 +53,9 @@ static bool	send_bits(pid_t server_pid, char c)
 			if (kill(server_pid, SIGUSR2) == -1)
 				return (false);
 		}
-		i--;
 		while (!g_info.ack)
 			pause();
+		i--;
 	}
 	return (true);
 }

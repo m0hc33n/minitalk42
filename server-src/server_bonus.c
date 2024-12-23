@@ -1,6 +1,6 @@
 #include "../inc/server.h"
 
-int	get_utf8_bytes_required(char first_byte)
+int	get_utf8_bytes_required(int first_byte)
 {
 	if ((first_byte & 0x80) == 0)
 		return (1);
@@ -49,6 +49,7 @@ static void	sighandler(int signum, siginfo_t *info, void *context)
 		else
 			byte_handle();
 	}
+	usleep(10);
 	kill(info->si_pid, SIGUSR2);
 }
 

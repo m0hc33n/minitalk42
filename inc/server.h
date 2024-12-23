@@ -37,6 +37,6 @@ typedef struct s_msg
 
 t_msg		g_msg;
 
-int			get_utf8_bytes_required(char first_byte);
+int			get_utf8_bytes_required(int first_byte);
 
 #endif
