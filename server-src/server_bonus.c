@@ -2,18 +2,18 @@
 
 int	get_utf8_bytes_required(char first_byte)
 {
-    if ((first_byte & 0x80) == 0)
-		return 1;
-    if ((first_byte & 0xE0) == 0xC0)
-		return 2;
-    if ((first_byte & 0xF0) == 0xE0)
-		return 3;
-    if ((first_byte & 0xF8) == 0xF0)
-		return 4;
-    return 0;
+	if ((first_byte & 0x80) == 0)
+		return (1);
+	if ((first_byte & 0xE0) == 0xC0)
+		return (2);
+	if ((first_byte & 0xF0) == 0xE0)
+		return (3);
+	if ((first_byte & 0xF8) == 0xF0)
+		return (4);
+	return (0);
 }
 
-void	byte_handle()
+void	byte_handle(void)
 {
 	if (!g_msg.current_byte)
 		g_msg.req_bytes = get_utf8_bytes_required(g_msg.current_char);

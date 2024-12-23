@@ -9,7 +9,7 @@ static void	sighandler(int signum, siginfo_t *info, void *context)
 	}
 }
 
-static void	init_client()
+static void	init_client(void)
 {
 	struct sigaction	sa;
 

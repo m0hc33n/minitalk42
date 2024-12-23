@@ -4,11 +4,11 @@
 # include "../inc/tools.h"
 # include <signal.h>
 # include <stdbool.h>
+# include <stdlib.h>
 # include <sys/types.h>
 # include <unistd.h>
-#include <stdlib.h>	
 
-# define CLIENT_BANNER  "\t========= Minitalk Client =========\n"
+# define CLIENT_BANNER "\t========= Minitalk Client =========\n"
 # define CLIENTBANNERLEN 37
 
 # define USAGE "USAGAE:\n\t<program> <server pid> <message>\n"
@@ -36,8 +36,8 @@ typedef struct s_info
 {
 	bool	ack;
 	pid_t	server_pid;
-}	t_info;
+}			t_info;
 
-t_info	g_info;
+t_info		g_info;
 
 #endif
